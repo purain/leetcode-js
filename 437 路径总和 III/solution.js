@@ -45,6 +45,7 @@ var pathSum = function(root, targetSum) {
     return result;
 };
 
+
 let a = {
 	val: 10,
 	left: {
@@ -72,4 +73,49 @@ let a = {
 		}
 	}
 }
-console.log(pathSum(a, 8)) // 3
+// [5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1] 22
+//            5
+//       4         8
+//    11        13    4
+//  7    2           5   1
+let b = {
+	val: 5,
+	left: {
+		val: 4,
+		left: {
+			val: 11,
+			left: {
+				val: 7
+			},
+			right: {
+				val: 2
+			}
+		}
+	},
+	right: {
+		val: 8,
+		left: {
+			val: 13
+		},
+		right: {
+			val: 4,
+			left: {
+				val: 5
+			},
+			right: {
+				val: 1
+			}
+		}
+	}
+}
+
+let c = {
+	val: 1
+}
+
+let d = {
+	val: 0,
+	left: {val: 1},
+	right: {val: 1}
+}
+console.log(pathSum(d, 1)) // 4
