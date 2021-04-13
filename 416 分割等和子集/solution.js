@@ -27,13 +27,11 @@ var canPartition = function(nums) {
     // 核心
     for (let i = 1; i < len; i++) {
     	for (let j = 0; j < sum / 2 + 1; j++) {
-    		// 比当前值小时，继承上侧
-    		if (j - nums[i] < 0) {
-    		    dp[i][j] = dp[i - 1][j];
-                continue;
-    		}
-    		// 比当前值大时，继承上侧或 dp[i - 1][j - nums[i]]
-            dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]]
+    		// 要么继承上个，要么继承 j-nums[i]，要么如果 j-nums[i] 是小于0的，则直接置false
+            dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]] || false
+            if (dp[i][sum / 2]) {
+            	return true;
+            }
     	}
     }
     return dp[len - 1][sum / 2];
