@@ -19,7 +19,6 @@ var findTargetSumWays = function(nums, S) {
 	// 初始化第一行，如果nums[0]为0，则不管加减0都为0，array[0][sum]要置为2
 	if (nums[0] === 0) {
 		array[0][sum] = 2
-		array[0][-sum] = 2
 	} else {
 	    array[0][sum - nums[0]] = 1;
 		array[0][sum + nums[0]] = 1;
